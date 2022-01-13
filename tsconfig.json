@@ -8,6 +8,7 @@
     "importHelpers": true,
     "module": "CommonJS",
     "newLine": "LF",
+    "jsx": "react",
     "allowJs": true,
     "outDir": "dist",
     "strict": true,
