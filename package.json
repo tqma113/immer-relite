@@ -18,7 +18,7 @@
     "test:watch": "jest --coverage --watch",
     "build": "tsc",
     "check-type": "tsc --noEmit",
-    "format": "prettier --write --parser typescript \"test/**/*.ts?(x)\" \"index.ts\"",
+    "format": "prettier --write --parser typescript \"test/**/*.ts?(x)\" \"src/*.ts\" \"src/**/*.ts\" \"src/**/*.tsx\"",
     "prepare": "npm run test && npm run build"
   },
   "repository": {
@@ -36,7 +36,7 @@
     "url": "https://github.com/tqma113/immer-relite/issues"
   },
   "homepage": "https://github.com/tqma113/immer-relite#readme",
-  "peerDependencies": { 
+  "peerDependencies": {
     "react": "> 16.8.0"
   },
   "peerDependenciesMeta": {
@@ -54,6 +54,7 @@
     "@types/react": "^17.0.38",
     "@types/use-sync-external-store": "^0.0.3",
     "jest": "^27.4.7",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "ts-jest": "^27.1.2",
     "tslib": "^2.3.1",

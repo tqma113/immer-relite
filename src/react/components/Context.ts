@@ -1,5 +1,5 @@
-import { createContext } from "react";
+import { createContext } from 'react'
 
-import type { Store } from "../../index";
+import type { Store } from '../../index'
 
-export const StoreContext = createContext<Store<any, any> | null>(null);
+export const StoreContext = createContext<Store<any, any> | null>(null)
