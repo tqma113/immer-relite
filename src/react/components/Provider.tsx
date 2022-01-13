@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, PropsWithChildren } from "react";
 
-import { attachDevTool } from "../attachDevTool";
-import type { Store } from "../index";
+import { attachDevTool } from "../../attachDevTool";
+import type { Store } from "../../index";
 
 import { StoreContext } from "./Context";
 

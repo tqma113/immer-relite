@@ -591,6 +591,11 @@
   resolved "https://registry.npmjs.org/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
 
+"@types/use-sync-external-store@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
+  integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
+
 "@types/yargs-parser@*":
   version "20.2.1"
   resolved "https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-20.2.1.tgz#3b9ce2489919d9e4fea439b76916abc34b2df129"
@@ -2426,6 +2431,11 @@ universalify@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
+
+use-sync-external-store@1.0.0-beta-24dd07bd2-20211208:
+  version "1.0.0-beta-24dd07bd2-20211208"
+  resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.0.0-beta-24dd07bd2-20211208.tgz#5c772042ed6890354e164783b955c8a6b05a3bc5"
+  integrity sha512-zsUliTCfuJYm5eUMfVhbU+MarwyBKlftNUrC7rAJH+OiwZi5n3/8VEqirRHup1EkVtNPjIIlXss/fbKCYGLTrA==
 
 v8-to-istanbul@^8.1.0:
   version "8.1.1"
