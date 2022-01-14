@@ -319,6 +319,11 @@ export interface Store<S extends unknown, AS extends Actions<S>> {
    * pass in all `Listener`.
    */
   publish: Publish<S, AS>
+
+  /**
+   * The name for display at Redux Dev Tools.
+   */
+  name?: string;
 }
 
 /**
@@ -336,7 +341,8 @@ export interface Store<S extends unknown, AS extends Actions<S>> {
 export interface StoreCreator {
   <S extends unknown, AS extends Actions<S>>(
     actions: AS,
-    initialState: S
+    initialState: S,
+    name?: string
   ): Store<S, AS>
 }
 
@@ -363,7 +369,8 @@ export const createStore: StoreCreator = <
   AS extends Actions<S>
 >(
   actions: AS,
-  initialState: S
+  initialState: S,
+  name?: string
 ) => {
   const listeners: Listener<S, AS>[] = []
   const subscribe: Subscribe<S, AS> = (listener: Listener<S, AS>) => {
@@ -482,6 +489,7 @@ export const createStore: StoreCreator = <
     dispatch,
     subscribe,
     publish,
+    name
   }
 
   return store
