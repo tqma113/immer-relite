@@ -24,7 +24,7 @@ const defaultOptions: Required<LoggerOptions> = {
   filter: identity,
 }
 
-export default function createLogger(customeOptions?: LoggerOptions) {
+export function createLogger(customeOptions?: LoggerOptions) {
   let { name, filter } = { ...defaultOptions, ...customeOptions }
   filter = typeof filter === 'function' ? filter : identity
   const logInfo = (data: DraftData) => {

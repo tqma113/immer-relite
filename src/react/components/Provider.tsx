@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, PropsWithChildren } from 'react'
 
-import { attachDevTool } from '../../attachDevTool'
+import { attachDevTool } from '../../dev/attachDevTool'
 import type { Store } from '../../index'
 
 import { StoreContext } from './Context'

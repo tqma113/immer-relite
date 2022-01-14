@@ -1,4 +1,4 @@
-import type { Store, Actions } from './index'
+import type { Store, Actions } from '../index'
 
 declare global {
   interface Window {
