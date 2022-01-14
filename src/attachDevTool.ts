@@ -24,7 +24,7 @@ export const attachDevTool = <S extends object, AS extends Actions<S>>(
   const sendMessage = window.__REDUX_DEVTOOLS_EXTENSION__.send
 
   const config = {
-    name: window.location.pathname + window.location.search,
+    name: store.name || window.location.pathname + window.location.search,
     actionsWhitelist: Object.keys(store.actions),
   }
 
