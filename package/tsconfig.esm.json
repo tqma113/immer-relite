@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "newLine": "LF",
+    "jsx": "react",
+    "allowJs": true,
+    "outDir": "esm",
+    "strict": true,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "suppressExcessPropertyErrors": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES6",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "stripInternal": true,
+    "lib": ["ESNext", "DOM"],
+  },
+  "include": ["src"]
+}

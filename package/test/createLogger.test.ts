@@ -1,5 +1,5 @@
 import { createStore } from '../src/index'
-import createLogger from '../src/logger'
+import { createLogger } from '../src/dev'
 
 import * as actions from './src/actions.helper'
 

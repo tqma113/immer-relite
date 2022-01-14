@@ -1,4 +1,4 @@
 export { useStore } from './useStore'
-export { useSelector } from './useSelector'
+export { useSelector, refEquality } from './useSelector'
 
 export type { Selector, EqualityFn } from './useSelector'

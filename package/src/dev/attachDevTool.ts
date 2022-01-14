@@ -26,16 +26,17 @@ export const attachDevTool = <S extends object, AS extends Actions<S>>(
   const config = {
     name: store.name || window.location.pathname + window.location.search,
     actionsWhitelist: Object.keys(store.actions),
+    trace: true,
   }
 
   store.subscribe((data) => {
+    console.log(data, data.end.getTime() - data.start.getTime())
     sendMessage(
       {
         action: {
           type: data.actionType,
           payload: data.actionPayload,
-        },
-        timestamp: data.end.getTime() - data.start.getTime(),
+        }
       },
       data.currentState,
       config
