@@ -1,45 +1,83 @@
-import type { Store, Actions } from '../index'
+import type { Store, Actions } from "../index";
 
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__: any
+    // https://github.com/reduxjs/redux-devtools/blob/main/extension/src/browser/extension/inject/pageScript.ts
+    __REDUX_DEVTOOLS_EXTENSION__: any;
   }
 }
 
 export const attachDevTool = <S extends object, AS extends Actions<S>>(
   store: Store<S, AS>
 ): void => {
-  if (process.env.NODE_ENV === 'production') {
-    return
+  if (process.env.NODE_ENV === "production") {
+    return;
   }
 
   if (
-    typeof window === 'undefined' ||
+    typeof window === "undefined" ||
     !window.__REDUX_DEVTOOLS_EXTENSION__ ||
     !window.__REDUX_DEVTOOLS_EXTENSION__.send
   ) {
-    return
+    return;
   }
-
-  const sendMessage = window.__REDUX_DEVTOOLS_EXTENSION__.send
 
   const config = {
     name: store.name || window.location.pathname + window.location.search,
     actionsWhitelist: Object.keys(store.actions),
-    trace: true,
-  }
+  };
+
+  const connection = window.__REDUX_DEVTOOLS_EXTENSION__.connect(config)
 
   store.subscribe((data) => {
-    console.log(data, data.end.getTime() - data.start.getTime())
-    sendMessage(
+    connection.send(
       {
-        action: {
-          type: data.actionType,
-          payload: data.actionPayload,
-        }
+        type: data.actionType,
+        payload: data.actionPayload,
       },
       data.currentState,
-      config
-    )
+    );
+  });
+
+  connection.subscribe((message: any) => {
+    // TODO
+    switch (message.type) {
+      case 'ACTION':
+        break
+      case 'START':
+        break
+      case 'STOP':
+        break
+      case 'UPDATE':
+        break
+      case 'DISPATCH':
+        switch(message.payload.type) {
+          case 'IMPORT_STATE':
+            break
+          case 'JUMP_TO_ACTION':
+            break
+          case 'JUMP_TO_STATE':
+            break
+          case 'LOCK_CHANGES':
+            break
+          case 'PAUSE_RECORDING':
+            break
+          case 'REORDER_ACTION':
+            break
+          case 'ROLLBACK':
+            break
+          case 'SWEEP':
+            break
+          case 'TOGGLE_ACTION':
+            break
+        }
+        break
+      case 'EXPORT':
+        break
+      case 'IMPORT':
+        break
+    }
   })
-}
+  
+  connection.init(store.getState())
+};
