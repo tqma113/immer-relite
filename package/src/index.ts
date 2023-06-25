@@ -16,9 +16,9 @@ import type { Draft } from 'immer'
  */
 
 /**
- * Get the Object.keys() as keyof inputed unknown.
+ * Get the Object.keys() as keyof inputted unknown.
  *
- * @template T The typeof inputed unknown.
+ * @template T The typeof inputted unknown.
  *
  * @param o A value extends unknown.
  *
@@ -44,7 +44,7 @@ export const getKeys = <T extends Record<string, unknown>>(o: T) =>
  * @template P The type of `Payload` that used to change the state as a assist.
  * @template RS The type of state that the action returns.
  *
- * @param state A snapshoot of current state. Will create new state based
+ * @param state A snapshot of current state. Will create new state based
  * on it.
  * @param [payload] Some useful data help to create new state. So we can
  * set it optionally.
@@ -101,7 +101,7 @@ export type Curring<S extends unknown, A extends AnyAction<S>> = A extends (
   : () => void
 
 /**
- * The cyrring `Actions`. Each `Action` in this will be optional.
+ * The curring `Actions`. Each `Action` in this will be optional.
  *
  * @template S The type of state to be held by the store.
  * @template AS The type of actions consist of `Action`. It will be map to the actions
@@ -141,7 +141,7 @@ export interface Data<S extends unknown, AS extends Actions<S>> {
   actionPayload: PayloadFromAction<AnyAction<S, any>>
 
   /**
-   * The snapshoot of state before this change. The state that passed into
+   * The snapshot of state before this change. The state that passed into
    * `Action`.
    */
   previousState: S
@@ -221,7 +221,7 @@ export type Dispatch<S extends unknown, AS extends Actions<S>> = <
 ) => S | Draft<S> | void
 
 /**
- * An state updator which get the final next state and call `replaceState()`
+ * An state updater which get the final next state and call `replaceState()`
  * to change state.
  *
  * @template S The type of state to be held by the store.
@@ -230,7 +230,7 @@ export type Dispatch<S extends unknown, AS extends Actions<S>> = <
  *
  * @returns The next state unknown.
  */
-export interface StateUpdator<S extends unknown> {
+export interface StateUpdater<S extends unknown> {
   (nextState: S): S
 }
 
@@ -243,7 +243,7 @@ export interface StateUpdator<S extends unknown> {
 export interface Store<S extends unknown, AS extends Actions<S>> {
   /**
    * Contain all caller curring from `Action` passed in `createStore` and
-   * `dispatch`. Could call dispatch whith mapped `Action` type.
+   * `dispatch`. Could call dispatch with mapped `Action` type.
    *
    * CurryingAction
    */
@@ -276,7 +276,7 @@ export interface Store<S extends unknown, AS extends Actions<S>> {
    * @param actionType A plain string that is the identifier of an `Action`
    * which representing “what changed”. It is a good idea to keep actions
    * serializable so you can record and replay user sessions, or use the time
-   * travelling `redux-devtools`. It is a requirement to use string constants
+   * traveling `redux-devtools`. It is a requirement to use string constants
    * for Action types.
    * @param [actionPayload] Some useful data help to create new `state`. So
    * we can set it optionally.
@@ -294,7 +294,7 @@ export interface Store<S extends unknown, AS extends Actions<S>> {
    * You may call `dispatch()` from a change listener, with the following
    * caveats:
    *
-   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * 1. The subscriptions are snapshot just before every `dispatch()` call.
    * If you subscribe or unsubscribe while the listeners are being invoked,
    * this will not have any effect on the `dispatch()` that is currently in
    * progress. However, the next `dispatch()` call, whether nested or not,
@@ -445,7 +445,7 @@ export const createStore: StoreCreator = <
       isDispatching = false
     }
 
-    const updateState: StateUpdator<S> = (nextState) => {
+    const updateState: StateUpdater<S> = (nextState) => {
       if (nextState === currentState) {
         return currentState
       }
@@ -496,7 +496,7 @@ export const createStore: StoreCreator = <
 }
 
 /**
- * The `Action` type for user to contruct input `Action`
+ * The `Action` type for user to construct input `Action`
  *
  * Pass in `unknown` type state and payload, return `unknown` type state.
  *
