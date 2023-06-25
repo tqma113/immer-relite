@@ -163,7 +163,7 @@ export interface Data<S extends unknown, AS extends Actions<S>> {
 /** Store */
 
 /**
- * An addit of store to add listener which listen the state change.
+ * An adder of store to add listener which listen the state change.
  *
  * @template S The type of state to be held by the store.
  */
